@@ -1,0 +1,9 @@
+version: '2'  
+services:  
+  web:
+    image: pokebot:latest
+    command: bundle exec puma -p 8000 -e production
+    restart: always
+
+    ports:
+      - 8000:8000
