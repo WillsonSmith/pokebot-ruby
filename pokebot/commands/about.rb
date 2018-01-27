@@ -3,7 +3,7 @@ require 'pokebot/helpers/fetch_pokemon'
 module Pokebot
   module Commands
     class About < SlackRubyBot::Commands::Base
-      match /^(?<bot>\w*) about ?(?<pokemon_name>(\w*)-?(\w*))$/ do |client, data, match|
+      match /^(?<bot>\w*) about (?=\S*['-]?)(?<pokemon_name>[a-zA-Z'-]+)/ do |client, data, match|
         pokemon_name = match[:pokemon_name]
 
         pokemon = FetchPokemon::find_pokemon(pokemon_name) unless pokemon_name.empty?
